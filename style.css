@@ -62,4 +62,11 @@ button {
 
 button:hover {
   background-color: #4338ca;
+}ul {
+  list-style: none;
+}
+
+li {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
 }
