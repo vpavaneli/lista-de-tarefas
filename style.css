@@ -69,4 +69,29 @@ button:hover {
 li {
   padding: 12px;
   border-bottom: 1px solid #eee;
+}li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+li span {
+  flex: 1;
+  cursor: pointer;
+}
+
+li.concluida span {
+  text-decoration: line-through;
+  color: #999;
+}
+
+button.remover {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  background-color: #dc2626;
+}
+
+button.remover:hover {
+  background-color: #b91c1c;
 }
