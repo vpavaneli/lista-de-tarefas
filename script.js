@@ -3,6 +3,8 @@ const input = document.getElementById("input-tarefa");
 const lista = document.getElementById("lista-tarefas");
 
 let tarefas = [];
+let filtroAtual = "todas";
+const botoesFiltro = document.querySelectorAll(".filtro");
 
 function salvar() {
   localStorage.setItem("tarefas", JSON.stringify(tarefas));
@@ -16,9 +18,11 @@ function carregar() {
 }
 
 function renderizar() {
-  lista.innerHTML = "";
+   lista.innerHTML = "";
 
   tarefas.forEach(function (tarefa, indice) {
+    if (filtroAtual === "pendentes" && tarefa.concluida) return;
+    if (filtroAtual === "concluidas" && !tarefa.concluida) return;
     const item = document.createElement("li");
     if (tarefa.concluida) {
       item.classList.add("concluida");
@@ -59,6 +63,18 @@ form.addEventListener("submit", function (evento) {
 
   input.value = "";
   input.focus();
+});
+botoesFiltro.forEach(function (botao) {
+  botao.addEventListener("click", function () {
+    filtroAtual = botao.dataset.filtro;
+
+    botoesFiltro.forEach(function (b) {
+      b.classList.remove("ativo");
+    });
+    botao.classList.add("ativo");
+
+    renderizar();
+  });
 });
 
 carregar();

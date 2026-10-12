@@ -94,4 +94,25 @@ button.remover {
 
 button.remover:hover {
   background-color: #b91c1c;
+}.filtros {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+button.filtro {
+  flex: 1;
+  padding: 8px;
+  font-size: 0.9rem;
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+button.filtro:hover {
+  background-color: #d1d5db;
+}
+
+button.filtro.ativo {
+  background-color: #4f46e5;
+  color: #fff;
 }
