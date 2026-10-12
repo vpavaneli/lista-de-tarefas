@@ -76,6 +76,19 @@ botoesFiltro.forEach(function (botao) {
     renderizar();
   });
 });
+const botaoTema = document.getElementById("botao-tema");
+
+function aplicarTema(escuro) {
+  document.body.classList.toggle("escuro", escuro);
+  botaoTema.textContent = escuro ? "☀️ Modo claro" : "🌙 Modo escuro";
+  localStorage.setItem("tema", escuro ? "escuro" : "claro");
+}
+
+botaoTema.addEventListener("click", function () {
+  aplicarTema(!document.body.classList.contains("escuro"));
+});
+
+aplicarTema(localStorage.getItem("tema") === "escuro");
 
 carregar();
 renderizar();
